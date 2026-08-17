@@ -63,7 +63,7 @@ The project records four completed synthetic fits, 832 forecast rows, 84 backtes
 
 A version-controlled operating model for Databricks Genie spaces. Room configuration, semantic metadata, SQL examples, benchmark questions, deployment scripts, dashboard guidance, and action playbooks live together as reviewable assets.
 
-The Olist example connects public-data ingestion, governed analytical tables, a Genie space, an eight-page AI/BI dashboard, and RAG-ready operating playbooks. The framework is substantial; its next maturity step is a smaller automated verification surface and durable repository-native demo captures.
+The Olist example connects public-data ingestion, governed analytical tables, a Genie space, an eight-page AI/BI dashboard, and RAG-ready operating playbooks. Focused CI now runs the validator, write-free materialization checks, and three repository-contract tests. Durable repository-native dashboard evidence remains pending because the published dashboard is not anonymously accessible.
 
 **Inspect:** [repository](https://github.com/soulipaco/databricks-genie-deployment-kit) · [Olist example](https://github.com/soulipaco/databricks-genie-deployment-kit/tree/main/examples/olist_ecommerce) · [deployment guide](https://github.com/soulipaco/databricks-genie-deployment-kit/blob/main/examples/olist_ecommerce/DEPLOY.md)
 
@@ -77,7 +77,7 @@ A 16-stage Databricks design that moves audio through alignment, redaction, opti
 
 ![Contract-first speech analytics architecture](assets/projects/speech-architecture.png)
 
-The implementation currently has static compile checks and detailed design evidence, but no recorded end-to-end Databricks execution or automated test suite. It is presented here as a working prototype, not as a released system.
+The implementation now has deterministic compile, workflow, taxonomy, schema-privacy, and synthetic-sample contracts covered by five tests and GitHub Actions. It still has no recorded successful Databricks pipeline execution, so it remains a working prototype rather than a released system.
 
 **Inspect:** [repository](https://github.com/soulipaco/speechanalytics-databricks-pipeline) · [architecture](https://github.com/soulipaco/speechanalytics-databricks-pipeline/blob/main/docs/02_architecture.md) · [security and PII design](https://github.com/soulipaco/speechanalytics-databricks-pipeline/blob/main/docs/05_security_and_pii.md)
 
