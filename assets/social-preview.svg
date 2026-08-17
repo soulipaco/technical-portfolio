@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">Onur Uslu — selected technical work</title>
+  <desc id="desc">A restrained social preview for a technical portfolio across data, analytics, machine learning systems, Databricks, and applied AI.</desc>
+  <rect width="1280" height="640" fill="#0B172A"/>
+  <rect x="0" y="0" width="18" height="640" fill="#14B8A6"/>
+  <circle cx="1120" cy="114" r="180" fill="#132B48"/>
+  <circle cx="1190" cy="42" r="118" fill="#183A5C"/>
+  <text x="92" y="112" fill="#5EEAD4" font-family="system-ui,Segoe UI,sans-serif" font-size="23" font-weight="700" letter-spacing="3">ONUR USLU · TECHNICAL PORTFOLIO</text>
+  <text x="92" y="212" fill="#F8FAFC" font-family="system-ui,Segoe UI,sans-serif" font-size="56" font-weight="740">Selected work across data,</text>
+  <text x="92" y="282" fill="#F8FAFC" font-family="system-ui,Segoe UI,sans-serif" font-size="56" font-weight="740">analytics, ML systems &amp; applied AI</text>
+  <text x="92" y="346" fill="#AAB8CA" font-family="system-ui,Segoe UI,sans-serif" font-size="23">Problems · implementation · architecture · evidence</text>
+
+  <line x1="92" y1="414" x2="1188" y2="414" stroke="#27415E" stroke-width="2"/>
+  <circle cx="108" cy="482" r="8" fill="#14B8A6"/>
+  <text x="134" y="490" fill="#D9E2EC" font-family="system-ui,Segoe UI,sans-serif" font-size="21">Operational analytics</text>
+  <circle cx="398" cy="482" r="8" fill="#3B82F6"/>
+  <text x="424" y="490" fill="#D9E2EC" font-family="system-ui,Segoe UI,sans-serif" font-size="21">Governed retrieval</text>
+  <circle cx="670" cy="482" r="8" fill="#F59E0B"/>
+  <text x="696" y="490" fill="#D9E2EC" font-family="system-ui,Segoe UI,sans-serif" font-size="21">Forecasting MLOps</text>
+  <circle cx="970" cy="482" r="8" fill="#8B5CF6"/>
+  <text x="996" y="490" fill="#D9E2EC" font-family="system-ui,Segoe UI,sans-serif" font-size="21">Semantic analytics</text>
+
+  <text x="92" y="574" fill="#7F91A8" font-family="system-ui,Segoe UI,sans-serif" font-size="20">github.com/soulipaco</text>
+</svg>
