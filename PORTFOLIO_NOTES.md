@@ -2,12 +2,13 @@
 
 ## Why this structure
 
-The account has two clear flagships, two strong supporting references, one promising but not yet runtime-validated prototype, and three authored learning-stage repositories. The portfolio makes those differences explicit instead of presenting every repository as equally mature.
+The account has three clear flagships, two strong supporting references, one promising but not yet runtime-validated prototype, and three authored learning-stage repositories. The portfolio makes those differences explicit instead of presenting every repository as equally mature.
 
 The README is organized by visitor intent first, then maturity. This lets a recruiter understand the account quickly while giving technical visitors direct routes to architecture, validation, and design documentation.
 
 ## Featured repositories
 
+- `pii-reduction`: strongest evidence discipline, with published numbers held by 56 regression gates, an evidence page that lists what was *not* executed, and recorded Databricks execution alongside a distributed path that has never run.
 - `contact-center-new-hire-intelligence`: strongest end-to-end product and best business-to-engineering story.
 - `structure-aware-rag-databricks`: strongest technical argument, testing, and retrieval evaluation.
 - `prophet-forecasting-mlops`: most compact locally reproducible MLOps reference.
@@ -27,7 +28,7 @@ The Spark and absenteeism repositories are grouped under earlier exploration. Th
 - The opening visual is a portfolio map, not a decorative hero.
 - Every project image comes from an actual repository artifact.
 - No fake screenshots, generated product UIs, logo walls, or animated decoration are used.
-- Only the three strongest projects receive case-study pages.
+- Case-study pages exist for the three projects whose argument is not already legible in their own repository. `pii-reduction` has none by design: its evidence page and decision index carry that role, and a portfolio retelling would only risk drifting from them.
 
 ## Future additions
 
@@ -38,4 +39,4 @@ A new project should replace or join a current section only when it has:
 3. at least one inspectable evidence surface;
 4. a concise reason to click through.
 
-The sixth pin is intentionally reserved rather than filled with weaker work.
+Profile pins were set on 2026-08-22 in maturity order — `pii-reduction`, `contact-center-new-hire-intelligence`, `structure-aware-rag-databricks`, `prophet-forecasting-mlops`, `databricks-genie-deployment-kit` — with the sixth slot given to this portfolio rather than to weaker work.
