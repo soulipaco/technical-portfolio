@@ -12,12 +12,27 @@ This repository is a guide to the work: what each project explores, how mature i
 
 | If you want to explore... | Start here | Evidence available |
 |---|---|---|
+| PII reduction in free text, with the numbers enforced | [Databricks PII Reduction Accelerator](https://github.com/soulipaco/pii-reduction) | 56 regression gates, 36 decision records, an evidence page listing what was *not* run, recorded Databricks execution, control-panel captures |
 | An end-to-end analytics product | [Contact Center New-Hire Intelligence](https://github.com/soulipaco/contact-center-new-hire-intelligence) | Release, CI, tests, live validation record, dashboard captures, walkthrough |
 | A retrieval system with a specific technical argument | [Structure-Aware RAG on Databricks](https://github.com/soulipaco/structure-aware-rag-databricks) | Public corpus, 200 tests, CI, evaluation set, live Databricks proof |
 | A compact, reproducible MLOps reference | [Prophet Forecasting MLOps](https://github.com/soulipaco/prophet-forecasting-mlops) | Synthetic run, tests, CI, locked environment, regenerable charts |
 | Semantic analytics managed as code | [Databricks Genie Deployment Kit](https://github.com/soulipaco/databricks-genie-deployment-kit) | Deployment assets, benchmarks, validators, Olist demo, live dashboard |
 
 ## Flagship systems
+
+### Databricks PII Reduction Accelerator
+
+**Released engine · `v0.1.0` · Databricks · multilingual NLP · privacy engineering · benchmarking**
+
+Operational text is where governance quietly fails: a ticket table can have clean schemas, lineage and access control while its `description` and `work_notes` columns still carry names, emails and phone numbers. This project reduces PII inside those columns without destroying what the data was kept for. A ticket id survives, and so do a transcript's timestamp and speaker label — the parser splits each cell into structure and content first, and the detector is only ever handed the content.
+
+Its distinguishing quality is that the published numbers are enforced rather than reported: 56 regression gates across three corpora and both provider chains, so no figure in the documentation can move without a test failing. English, German and Greek, with the deterministic and NLP chains benchmarked side by side.
+
+![A completed run in the accelerator's control panel, showing only run metadata — row and field counts, entity counts, timings and output paths — with no source or reduced text on the screen](assets/projects/pii-reduction-run.png)
+
+**Recorded execution, and the gaps stated beside it.** Driver-path parity has been executed on a real Azure Databricks workspace, and the service has been hosted as a Databricks App and driven over HTTPS. The distributed `mapInPandas` path is shipped and **has never run**: the workspace's serverless sandbox returns an isolation startup failure, which is infrastructure rather than code. `ADDRESS` is in the taxonomy and **no shipped chain detects it**. Greek PERSON recall is published as 0.500 rather than rounded up, because the good Greek models are non-commercially licensed and cannot enter an MIT project. It is not an estate scanner — it reduces PII in columns an operator names — and it claims no compliance outcome or guaranteed anonymization.
+
+**Inspect:** [repository](https://github.com/soulipaco/pii-reduction) · [what was executed](https://github.com/soulipaco/pii-reduction/blob/main/docs/22_EVIDENCE.md) · [36 decision records](https://github.com/soulipaco/pii-reduction/blob/main/docs/adr/README.md) · [measured baseline](https://github.com/soulipaco/pii-reduction/blob/main/docs/14_IMPLEMENTATION_PLAN.md) · [providers and their limits](https://github.com/soulipaco/pii-reduction/blob/main/docs/15_PROVIDERS.md)
 
 ### Contact Center New-Hire Intelligence
 
