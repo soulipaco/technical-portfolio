@@ -13,6 +13,7 @@ This repository is a guide to the work: what each project explores, how mature i
 | If you want to explore... | Start here | Evidence available |
 |---|---|---|
 | PII reduction in free text, with the numbers enforced | [Databricks PII Reduction Accelerator](https://github.com/soulipaco/pii-reduction) | 56 regression gates, 36 decision records, an evidence page listing what was *not* run, recorded Databricks execution, control-panel captures |
+| A benchmark that reports its own model's weakness | [Databricks Forecast Benchmark](https://github.com/soulipaco/databricks-forecast-planning-cockpit) | Protocol frozen before the test year, 756/756 scored forecasts, 85 tests, CI, `v1.0.0` release, published bias shortfall |
 | An end-to-end analytics product | [Contact Center New-Hire Intelligence](https://github.com/soulipaco/contact-center-new-hire-intelligence) | Release, CI, tests, live validation record, dashboard captures, walkthrough |
 | A retrieval system with a specific technical argument | [Structure-Aware RAG on Databricks](https://github.com/soulipaco/structure-aware-rag-databricks) | Public corpus, 200 tests, CI, evaluation set, live Databricks proof |
 | A compact, reproducible MLOps reference | [Prophet Forecasting MLOps](https://github.com/soulipaco/prophet-forecasting-mlops) | Synthetic run, tests, CI, locked environment, regenerable charts |
@@ -33,6 +34,20 @@ Its distinguishing quality is that the published numbers are enforced rather tha
 **Recorded execution, and the gaps stated beside it.** Driver-path parity has been executed on a real Azure Databricks workspace, and the service has been hosted as a Databricks App and driven over HTTPS. The distributed `mapInPandas` path is shipped and **has never run**: the workspace's serverless sandbox returns an isolation startup failure, which is infrastructure rather than code. `ADDRESS` is in the taxonomy and **no shipped chain detects it**. Greek PERSON recall is published as 0.500 rather than rounded up, because the good Greek models are non-commercially licensed and cannot enter an MIT project. It is not an estate scanner — it reduces PII in columns an operator names — and it claims no compliance outcome or guaranteed anonymization.
 
 **Inspect:** [repository](https://github.com/soulipaco/pii-reduction) · [what was executed](https://github.com/soulipaco/pii-reduction/blob/main/docs/22_EVIDENCE.md) · [36 decision records](https://github.com/soulipaco/pii-reduction/blob/main/docs/adr/README.md) · [measured baseline](https://github.com/soulipaco/pii-reduction/blob/main/docs/14_IMPLEMENTATION_PLAN.md) · [providers and their limits](https://github.com/soulipaco/pii-reduction/blob/main/docs/15_PROVIDERS.md)
+
+### Databricks Forecast Benchmark
+
+**Released benchmark · `v1.0.0` · Databricks `ai_forecast` · time-series forecasting · Delta · Asset Bundles · AI/BI**
+
+Can one Databricks SQL function replace a forecasting pipeline? This benchmark puts `ai_forecast` v2 against a tuned Prophet pipeline (20 Optuna trials per series) and a weekly seasonal baseline on 21 NYC 311 daily-demand series, forecasting 28 days ahead from 12 monthly origins across 2025. The protocol, series and pass rule were hash-frozen and tagged before any 2025 data was downloaded, and every one of the 756 scored forecasts is stored in Delta and served through a code-managed AI/BI dashboard.
+
+The SQL function had the lowest error — median series WAPE 17.1% against 19.5% for Prophet and 25.0% for the baseline, best on 17 of 21 series and in every complaint family — with no training code and no tuning.
+
+![Error and bias by model: ai_forecast v2 has the lowest median series error, 17.1%, but forecasts 14.3% below actual demand, while tuned Prophet is within 0.5%](assets/projects/forecast-benchmark-scoreboard.png)
+
+**The result it did not want, published beside the one it did.** v2 forecast 14.3% less demand than arrived, below actual at all 12 origins and about 25% short for heating and residential noise. Under the rule written before the test year — error no more than 5% worse than Prophet *and* bias no more than 2 points worse — it does **not** qualify as a drop-in replacement. v2 ran in a Databricks trial workspace while the other models ran locally, so runtimes are not like-for-like. It is a retrospective backtest on one public dataset: no universal winner, capacity or savings claim is made. The Prophet adapter reuses [Prophet Forecasting MLOps](https://github.com/soulipaco/prophet-forecasting-mlops).
+
+**Inspect:** [repository](https://github.com/soulipaco/databricks-forecast-planning-cockpit) · [benchmark protocol](https://github.com/soulipaco/databricks-forecast-planning-cockpit/blob/main/docs/design/03_BENCHMARK_PROTOCOL.md) · [evidence index](https://github.com/soulipaco/databricks-forecast-planning-cockpit/blob/main/evidence/README.md) · [what v2 needed to run](https://github.com/soulipaco/databricks-forecast-planning-cockpit/blob/main/docs/adr/native_v2_runtime_blocker.md) · [dashboards](https://github.com/soulipaco/databricks-forecast-planning-cockpit/blob/main/dashboards/README.md)
 
 ### Contact Center New-Hire Intelligence
 
@@ -102,7 +117,7 @@ The projects differ, but several interests repeat:
 
 - **Governed data foundations:** contracts, Delta tables, Unity Catalog, lineage, idempotent runs, and quality gates.
 - **Analytical decision surfaces:** dashboards, semantic metadata, benchmark questions, and natural-language analytics.
-- **Machine-learning systems:** time-aware forecasting, experiment tracking, evaluation, stable outputs, and deployment bundles.
+- **Machine-learning systems:** time-aware forecasting, pre-registered benchmarks, experiment tracking, evaluation, stable outputs, and deployment bundles.
 - **Applied retrieval:** structure-aware chunking, explicit evidence relationships, vector search, RAG, and abstention behavior.
 - **Operational trust:** reproducible demos, public-data fixtures, privacy boundaries, scoped claims, and reviewable artifacts.
 
