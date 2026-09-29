@@ -2,13 +2,14 @@
 
 ## Why this structure
 
-The account has three clear flagships, two strong supporting references, one promising but not yet runtime-validated prototype, and three authored learning-stage repositories. The portfolio makes those differences explicit instead of presenting every repository as equally mature.
+The account has four clear flagships, two strong supporting references, one promising but not yet runtime-validated prototype, and three authored learning-stage repositories. The portfolio makes those differences explicit instead of presenting every repository as equally mature.
 
 The README is organized by visitor intent first, then maturity. This lets a recruiter understand the account quickly while giving technical visitors direct routes to architecture, validation, and design documentation.
 
 ## Featured repositories
 
 - `pii-reduction`: strongest evidence discipline, with published numbers held by 56 regression gates, an evidence page that lists what was *not* executed, and recorded Databricks execution alongside a distributed path that has never run.
+- `databricks-forecast-planning-cockpit`: strongest experimental design — a protocol frozen before the test year, and a published verdict that its best-scoring model fails the pre-registered bias rule. Its visual is the scoreboard because it carries the win and the shortfall in one repository artifact.
 - `contact-center-new-hire-intelligence`: strongest end-to-end product and best business-to-engineering story.
 - `structure-aware-rag-databricks`: strongest technical argument, testing, and retrieval evaluation.
 - `prophet-forecasting-mlops`: most compact locally reproducible MLOps reference.
